@@ -8,6 +8,7 @@ import * as approverApi from "../api/approver.api";
 
 export function* getImage(action) {
   yield takeLatest(approverActions.fetchImage, getImageFromAPI);
+  yield takeLatest(approverActions.rejectImage, getImageFromAPI);
   yield takeLatest(approverActions.fetchExistingImage, getExistingImageFromAPI);
 }
 

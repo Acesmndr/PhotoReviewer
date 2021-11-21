@@ -8,12 +8,6 @@ const initialState = {
 
 const approverReducer = (state = initialState, action) => {
   switch (action.type) {
-    case approverActions.restoreStorageData:
-      return {
-        ...state,
-        approvedImages: JSON.parse(localStorage.getItem('approved') || '[]'),
-        rejectedImages: JSON.parse(localStorage.getItem('rejected') || '[]'), 
-      }
     case approverActions.fetchImageSuccess:
       return {
         ...state,
@@ -31,6 +25,12 @@ const approverReducer = (state = initialState, action) => {
         ...state,
         approvedImages: approvedImgs,
         currentImage: {},
+      }
+    case approverActions.restoreStorageData:
+      return {
+        ...state,
+        approvedImages: JSON.parse(localStorage.getItem('approved') || '[]'),
+        rejectedImages: JSON.parse(localStorage.getItem('rejected') || '[]'), 
       }
     case approverActions.rejectImage:
       const { rejectedImages: previousRejectedImages, approvedImages: previousApprovedImages } = state;

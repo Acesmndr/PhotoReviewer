@@ -17,7 +17,7 @@ const Title = styled.h2`
 const ImageThumbnailHolder = styled.div`
   display: flex;
   margin: 16px 0;
-  overflow-x: scroll;
+  overflow-x: auto;
 `;
 
 const ImageThumbnail = styled.div`
